@@ -1,12 +1,13 @@
 import pandas as pd
 import numpy as np
 import time
+import glob
 
 class CreateTimeSeriesData:
     def __init__(self, target_cols: list) -> None:
         self.target_cols = target_cols
-        self.dir_order_data = '../data/FEH_00100401_240415220642.csv'
-        self.dir_stock_data = '../data/TimeSeriesResult_20240415215057946.csv'
+        self.dir_order_data = '../data/FEH_00100401_*.csv'
+        self.dir_stock_data = '../data/TimeSeriesResult_*.csv'
         self.month_lists = list()
         self.months = list()
         self.base_df = pd.DataFrame()
@@ -15,7 +16,8 @@ class CreateTimeSeriesData:
         """対象データの読み込み"""        
 
         #機械受注長期時系列
-        order_data = pd.read_csv(self.dir_order_data, skiprows = 9, encoding='shift-jis') #2005年4月～2024年2月
+        dir_order_data = glob.glob(self.dir_order_data)[0]
+        order_data = pd.read_csv(dir_order_data, skiprows = 9, encoding='shift-jis') #2005年4月～2024年2月
         order_data = order_data.sort_values('時間軸(月次) コード')
         # numeric列は'xx,xxx'などのstr型格納されているのでfloat処理
         numeric_cols = order_data.columns[7:]
@@ -24,8 +26,8 @@ class CreateTimeSeriesData:
             order_data[column] = order_data[column].str.replace(',', '').astype(float)
 
         # 日経平均
-        stock_data = pd.read_csv(self.dir_stock_data)[63:-1] #2005年4月～2024年2月
-        # stock_data = stock_data.sort_values('時点')
+        dir_stock_data = glob.glob(self.dir_stock_data)[0]
+        stock_data = pd.read_csv(dir_stock_data)[63:-1] #2005年4月～2024年2月
 
         return order_data, stock_data
     

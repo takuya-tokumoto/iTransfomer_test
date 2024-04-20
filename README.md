@@ -2,9 +2,14 @@
 
 - [参照記事](https://zenn.dev/shungo_a/articles/1ae7e8c68b1cbb)
 
-## セットアップ
-### xx
-
+## 仮想環境作成
+Anacondaのパスを通し、condaコマンドが利用可能か確認する。  
+以下のコマンドで仮想環境を作成する。  
+`conda create -n {環境名} python=3.10`
+仮想環境を起動する  
+`conda activate {環境名}`  
+ライブラリをインストール  
+`pip install -r requre_itrans.txt --user`  
 
 ## iTransformerの特徴
 ### 既存手法では各時刻の値でトークン化していたが時系列データ全体をトークン化するように変更
