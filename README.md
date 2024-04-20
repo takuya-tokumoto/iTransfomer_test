@@ -13,8 +13,15 @@ conda create -n {環境名} python=3.10
 conda activate {環境名}
 ```
 ライブラリをインストール  
+- `./scripts/iTransformer.ipynb` を実行する場合
 ```shell
+# 
 pip install -r require_itrans.txt --user
+```
+- `scripts/Prophet.ipynb.ipynb` を実行する場合
+```shell
+# scripts/prophet.ipynb を実行する場合
+pip install -r require_prophet.txt --user
 ```
 
 ## iTransformerの特徴
