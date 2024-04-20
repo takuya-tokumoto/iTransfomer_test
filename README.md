@@ -15,7 +15,6 @@ conda activate {環境名}
 ライブラリをインストール  
 - `./scripts/iTransformer.ipynb` を実行する場合
 ```shell
-# 
 pip install -r require_itrans.txt --user
 ```
 - `scripts/Prophet.ipynb.ipynb` を実行する場合
