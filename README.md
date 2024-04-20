@@ -6,7 +6,7 @@
 Anacondaのパスを通し、condaコマンドが利用可能か確認する。  
 以下のコマンドで仮想環境を作成する。  
 ```shell
-conda create -n {環境名} python=3.10`
+conda create -n {環境名} python=3.10
 ```
 仮想環境を起動する  
 ```shell
@@ -14,7 +14,7 @@ conda activate {環境名}
 ```
 ライブラリをインストール  
 ```shell
-pip install -r requre_itrans.txt --user
+pip install -r require_itrans.txt --user
 ```
 
 ## iTransformerの特徴
